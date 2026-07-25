@@ -3,10 +3,10 @@ name = "sodacards"
 version = "1.0.0"
 description = "SODACARDS Developer API"
 authors = [
-  {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
+  {name = "SODACARDS", email = "support@sodacards.com"},
 ]
 readme = "README.md"
-keywords = ["OpenAPI", "OpenAPI-Generator", "SODACARDS Developer API"]
+keywords = ["sodacards", "gift-cards", "game-topup", "payments", "api", "sdk"]
 requires-python = ">=3.9"
 
 dependencies = [
