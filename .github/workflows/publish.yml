@@ -1,0 +1,47 @@
+name: Publish to PyPI
+
+# Publishes the SODACARDS Python SDK to PyPI when a GitHub Release is published.
+# Authentication is OIDC Trusted Publishing (no long-lived token): PyPI must have a
+# trusted publisher (or pending publisher) configured for this repo and this workflow
+# filename. The published version is taken from the release tag (vX.Y.Z -> X.Y.Z),
+# so the tag is the single source of truth.
+on:
+  release:
+    types: [published]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required for PyPI Trusted Publishing (OIDC)
+    steps:
+      - name: Check out the SDK
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Pin the package version to the release tag
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME#v}"
+          if [ -z "${version}" ]; then
+            echo "No release tag found; refusing to publish an unversioned build." >&2
+            exit 1
+          fi
+          sed -i -E "s/^version = \".*\"/version = \"${version}\"/" pyproject.toml
+          echo "Publishing version ${version}"
+
+      - name: Build the distribution
+        run: |
+          python -m pip install --upgrade build
+          python -m build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
