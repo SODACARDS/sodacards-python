@@ -31,7 +31,7 @@ class SodacardsDevpublicV1Order(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="id identifies the order.")
     status: Optional[StrictStr] = Field(default=None, description="status is the order's current state: \"pending\", \"processing\", \"completed\",  \"failed\" or \"refunded\".")
-    total: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="total is the amount charged for the order, in FCFA.")
+    total: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="total is the amount charged for the order, in the currency of Money.")
     created_at: Optional[StrictStr] = Field(default=None, description="created_at is when the order was placed (RFC 3339).", alias="createdAt")
     reference: Optional[StrictStr] = Field(default=None, description="reference is the identifier you attached at creation, empty if none.")
     lines: Optional[List[SodacardsDevpublicV1OrderItem]] = Field(default=None, description="lines are the ordered products.")

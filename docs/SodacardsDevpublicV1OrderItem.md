@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **product_id** | **str** | product_id is the product ordered on this line. | [optional] 
 **name** | **str** | name is the product name at order time. | [optional] 
-**unit_price** | [**SodacardsDevpublicV1Money**](SodacardsDevpublicV1Money.md) | unit_price is the price of one unit, in FCFA. | [optional] 
+**unit_price** | [**SodacardsDevpublicV1Money**](SodacardsDevpublicV1Money.md) | unit_price is the price of one unit, in the currency of Money. | [optional] 
 **quantity** | **int** | quantity is how many units were ordered. | [optional] 
-**line_total** | [**SodacardsDevpublicV1Money**](SodacardsDevpublicV1Money.md) | line_total is unit_price times quantity, in FCFA. | [optional] 
+**line_total** | [**SodacardsDevpublicV1Money**](SodacardsDevpublicV1Money.md) | line_total is unit_price times quantity, in the currency of Money. | [optional] 
 **input_fields** | **Dict[str, str]** | input_fields are the purchase-form values submitted for this line. | [optional] 
 
 ## Example

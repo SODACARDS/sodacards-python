@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from sodacards.models.amount import Amount
 from typing import Optional, Set
@@ -26,11 +26,12 @@ from pydantic_core import to_jsonable_python
 
 class SodacardsDevpublicV1Money(BaseModel):
     """
-    Money is an amount in the currency's minor units together with its ISO-4217  code. XOF (the West-African CFA franc) has no minor unit, so for XOF amount is  the whole franc value.
+    Money is an amount in a currency's minor units, together with the currency's  ISO-4217 code and its number of decimal places, so the amount can be  interpreted without assuming the currency. XOF (the West-African CFA franc) has  no minor unit, so an XOF amount is a whole franc value.
     """ # noqa: E501
     amount: Optional[Amount] = None
     currency: Optional[StrictStr] = Field(default=None, description="currency is the ISO-4217 code, e.g. \"XOF\".")
-    __properties: ClassVar[List[str]] = ["amount", "currency"]
+    minor_unit_exponent: Optional[StrictInt] = Field(default=None, description="minor_unit_exponent is the currency's number of decimal places (0 for XOF,  2 for USD): amount divided by 10^minor_unit_exponent is the major-unit value.", alias="minorUnitExponent")
+    __properties: ClassVar[List[str]] = ["amount", "currency", "minorUnitExponent"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,7 +88,8 @@ class SodacardsDevpublicV1Money(BaseModel):
 
         _obj = cls.model_validate({
             "amount": Amount.from_dict(obj["amount"]) if obj.get("amount") is not None else None,
-            "currency": obj.get("currency")
+            "currency": obj.get("currency"),
+            "minorUnitExponent": obj.get("minorUnitExponent")
         })
         return _obj
 

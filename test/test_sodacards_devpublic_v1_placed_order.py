@@ -39,7 +39,8 @@ class TestSodacardsDevpublicV1PlacedOrder(unittest.TestCase):
                 status = '',
                 total = sodacards.models.money.Money(
                     amount = 56, 
-                    currency = '', )
+                    currency = '', 
+                    minor_unit_exponent = 56, )
             )
         else:
             return SodacardsDevpublicV1PlacedOrder(

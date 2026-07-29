@@ -30,9 +30,9 @@ class SodacardsDevpublicV1OrderItem(BaseModel):
     """ # noqa: E501
     product_id: Optional[StrictStr] = Field(default=None, description="product_id is the product ordered on this line.", alias="productId")
     name: Optional[StrictStr] = Field(default=None, description="name is the product name at order time.")
-    unit_price: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="unit_price is the price of one unit, in FCFA.", alias="unitPrice")
+    unit_price: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="unit_price is the price of one unit, in the currency of Money.", alias="unitPrice")
     quantity: Optional[StrictInt] = Field(default=None, description="quantity is how many units were ordered.")
-    line_total: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="line_total is unit_price times quantity, in FCFA.", alias="lineTotal")
+    line_total: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="line_total is unit_price times quantity, in the currency of Money.", alias="lineTotal")
     input_fields: Optional[Dict[str, StrictStr]] = Field(default=None, description="input_fields are the purchase-form values submitted for this line.", alias="inputFields")
     __properties: ClassVar[List[str]] = ["productId", "name", "unitPrice", "quantity", "lineTotal", "inputFields"]
 

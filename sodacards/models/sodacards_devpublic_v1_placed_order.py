@@ -26,11 +26,11 @@ from pydantic_core import to_jsonable_python
 
 class SodacardsDevpublicV1PlacedOrder(BaseModel):
     """
-    PlacedOrder is the accepted order: its id, the amount charged to the wallet in  FCFA, and its current status.
+    PlacedOrder is the accepted order: its id, the amount charged to the wallet  (see total), and its current status.
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="id identifies the order; use it to poll the order and reveal its codes.")
     status: Optional[StrictStr] = Field(default=None, description="status is the order's current state, e.g. \"pending\", \"processing\",  \"completed\", \"partially_completed\", \"failed\" or \"refunded\".")
-    total: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="total is the amount charged to the reseller's wallet, in FCFA.")
+    total: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="total is the amount charged to the reseller's wallet, in the currency of Money.")
     __properties: ClassVar[List[str]] = ["id", "status", "total"]
 
     model_config = ConfigDict(

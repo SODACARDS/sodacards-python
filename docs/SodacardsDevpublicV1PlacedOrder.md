@@ -1,6 +1,6 @@
 # SodacardsDevpublicV1PlacedOrder
 
-PlacedOrder is the accepted order: its id, the amount charged to the wallet in  FCFA, and its current status.
+PlacedOrder is the accepted order: its id, the amount charged to the wallet  (see total), and its current status.
 
 ## Properties
 
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | id identifies the order; use it to poll the order and reveal its codes. | [optional] 
 **status** | **str** | status is the order&#39;s current state, e.g. \&quot;pending\&quot;, \&quot;processing\&quot;,  \&quot;completed\&quot;, \&quot;partially_completed\&quot;, \&quot;failed\&quot; or \&quot;refunded\&quot;. | [optional] 
-**total** | [**SodacardsDevpublicV1Money**](SodacardsDevpublicV1Money.md) | total is the amount charged to the reseller&#39;s wallet, in FCFA. | [optional] 
+**total** | [**SodacardsDevpublicV1Money**](SodacardsDevpublicV1Money.md) | total is the amount charged to the reseller&#39;s wallet, in the currency of Money. | [optional] 
 
 ## Example
 

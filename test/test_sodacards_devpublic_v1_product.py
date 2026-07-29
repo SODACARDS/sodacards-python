@@ -42,10 +42,12 @@ class TestSodacardsDevpublicV1Product(unittest.TestCase):
                     currency = '', ),
                 price = sodacards.models.money.Money(
                     amount = 56, 
-                    currency = '', ),
+                    currency = '', 
+                    minor_unit_exponent = 56, ),
                 strike_price = sodacards.models.money.Money(
                     amount = 56, 
-                    currency = '', ),
+                    currency = '', 
+                    minor_unit_exponent = 56, ),
                 bonus = '',
                 min_quantity = 56,
                 max_quantity = 56,

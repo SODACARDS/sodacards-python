@@ -39,11 +39,13 @@ class TestSodacardsDevpublicV1OrderItem(unittest.TestCase):
                 name = '',
                 unit_price = sodacards.models.money.Money(
                     amount = 56, 
-                    currency = '', ),
+                    currency = '', 
+                    minor_unit_exponent = 56, ),
                 quantity = 56,
                 line_total = sodacards.models.money.Money(
                     amount = 56, 
-                    currency = '', ),
+                    currency = '', 
+                    minor_unit_exponent = 56, ),
                 input_fields = {
                     'key' : ''
                     }

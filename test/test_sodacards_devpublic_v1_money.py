@@ -36,7 +36,8 @@ class TestSodacardsDevpublicV1Money(unittest.TestCase):
         if include_optional:
             return SodacardsDevpublicV1Money(
                 amount = 56,
-                currency = ''
+                currency = '',
+                minor_unit_exponent = 56
             )
         else:
             return SodacardsDevpublicV1Money(
