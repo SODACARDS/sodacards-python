@@ -27,7 +27,7 @@ AMOUNT_ANY_OF_SCHEMAS = ["int", "str"]
 
 class Amount(BaseModel):
     """
-    amount is the value in the currency's minor units.
+    amount is the value in the currency's minor units. It is a 64-bit integer, so  JSON carries it as a string (protobuf's mapping for int64, which avoids losing  precision in languages whose numbers are 53-bit): read it as an integer.
     """
 
     # data type: int
