@@ -17,21 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from sodacards.models.amount import Amount
+from sodacards.models.sodacards_devpublic_v1_money import SodacardsDevpublicV1Money
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class SodacardsDevpublicV1Money(BaseModel):
+class SodacardsDevpublicV1GetBalanceResponse(BaseModel):
     """
-    SodacardsDevpublicV1Money
+    SodacardsDevpublicV1GetBalanceResponse
     """ # noqa: E501
-    amount: Optional[Amount] = None
-    currency: Optional[StrictStr] = Field(default=None, description="currency is the ISO-4217 code, e.g. \"XOF\".")
-    minor_unit_exponent: Optional[StrictInt] = Field(default=None, description="minor_unit_exponent is the currency's number of decimal places (0 for XOF,  2 for USD): amount divided by 10^minor_unit_exponent is the major-unit value.", alias="minorUnitExponent")
-    __properties: ClassVar[List[str]] = ["amount", "currency", "minorUnitExponent"]
+    balance: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="balance is the reseller's prepaid wallet balance. For a test key it is a  fixed sandbox value, clearly not the production wallet.")
+    __properties: ClassVar[List[str]] = ["balance"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -51,7 +49,7 @@ class SodacardsDevpublicV1Money(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SodacardsDevpublicV1Money from a JSON string"""
+        """Create an instance of SodacardsDevpublicV1GetBalanceResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,14 +70,14 @@ class SodacardsDevpublicV1Money(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of amount
-        if self.amount:
-            _dict['amount'] = self.amount.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of balance
+        if self.balance:
+            _dict['balance'] = self.balance.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SodacardsDevpublicV1Money from a dict"""
+        """Create an instance of SodacardsDevpublicV1GetBalanceResponse from a dict"""
         if obj is None:
             return None
 
@@ -87,9 +85,7 @@ class SodacardsDevpublicV1Money(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "amount": Amount.from_dict(obj["amount"]) if obj.get("amount") is not None else None,
-            "currency": obj.get("currency"),
-            "minorUnitExponent": obj.get("minorUnitExponent")
+            "balance": SodacardsDevpublicV1Money.from_dict(obj["balance"]) if obj.get("balance") is not None else None
         })
         return _obj
 

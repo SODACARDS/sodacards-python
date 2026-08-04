@@ -18,6 +18,7 @@ __version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
+    "PublicAPIServiceApi",
     "DefaultApi",
     "ApiResponse",
     "ApiClient",
@@ -30,6 +31,7 @@ __all__ = [
     "ApiException",
     "Amount",
     "SodacardsDevpublicV1DeleteWebhookRequest",
+    "SodacardsDevpublicV1GetBalanceResponse",
     "SodacardsDevpublicV1GetOrderRequest",
     "SodacardsDevpublicV1GetOrderResponse",
     "SodacardsDevpublicV1GetProductRequest",
@@ -60,6 +62,7 @@ __all__ = [
 ]
 
 # import apis into sdk package
+from sodacards.api.public_api_service_api import PublicAPIServiceApi as PublicAPIServiceApi
 from sodacards.api.default_api import DefaultApi as DefaultApi
 
 # import ApiClient
@@ -76,6 +79,7 @@ from sodacards.exceptions import ApiException as ApiException
 # import models into sdk package
 from sodacards.models.amount import Amount as Amount
 from sodacards.models.sodacards_devpublic_v1_delete_webhook_request import SodacardsDevpublicV1DeleteWebhookRequest as SodacardsDevpublicV1DeleteWebhookRequest
+from sodacards.models.sodacards_devpublic_v1_get_balance_response import SodacardsDevpublicV1GetBalanceResponse as SodacardsDevpublicV1GetBalanceResponse
 from sodacards.models.sodacards_devpublic_v1_get_order_request import SodacardsDevpublicV1GetOrderRequest as SodacardsDevpublicV1GetOrderRequest
 from sodacards.models.sodacards_devpublic_v1_get_order_response import SodacardsDevpublicV1GetOrderResponse as SodacardsDevpublicV1GetOrderResponse
 from sodacards.models.sodacards_devpublic_v1_get_product_request import SodacardsDevpublicV1GetProductRequest as SodacardsDevpublicV1GetProductRequest
