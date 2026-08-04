@@ -6,7 +6,6 @@
 README.md
 docs/Amount.md
 docs/DefaultApi.md
-docs/PublicAPIServiceApi.md
 docs/SodacardsDevpublicV1DeleteWebhookRequest.md
 docs/SodacardsDevpublicV1GetBalanceResponse.md
 docs/SodacardsDevpublicV1GetOrderRequest.md
@@ -48,7 +47,6 @@ setup.py
 sodacards/__init__.py
 sodacards/api/__init__.py
 sodacards/api/default_api.py
-sodacards/api/public_api_service_api.py
 sodacards/api_client.py
 sodacards/api_response.py
 sodacards/configuration.py
@@ -94,7 +92,6 @@ test-requirements.txt
 test/__init__.py
 test/test_amount.py
 test/test_default_api.py
-test/test_public_api_service_api.py
 test/test_sodacards_devpublic_v1_delete_webhook_request.py
 test/test_sodacards_devpublic_v1_get_balance_response.py
 test/test_sodacards_devpublic_v1_get_order_request.py

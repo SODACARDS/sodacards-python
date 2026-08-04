@@ -18,6 +18,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
+from sodacards.models.sodacards_devpublic_v1_get_balance_response import SodacardsDevpublicV1GetBalanceResponse
 from sodacards.models.sodacards_devpublic_v1_get_order_response import SodacardsDevpublicV1GetOrderResponse
 from sodacards.models.sodacards_devpublic_v1_get_product_response import SodacardsDevpublicV1GetProductResponse
 from sodacards.models.sodacards_devpublic_v1_list_catalog_response import SodacardsDevpublicV1ListCatalogResponse
@@ -29,6 +30,7 @@ from sodacards.models.sodacards_devpublic_v1_place_order_response import Sodacar
 from sodacards.models.sodacards_devpublic_v1_register_webhook_request import SodacardsDevpublicV1RegisterWebhookRequest
 from sodacards.models.sodacards_devpublic_v1_register_webhook_response import SodacardsDevpublicV1RegisterWebhookResponse
 from sodacards.models.sodacards_devpublic_v1_reveal_order_codes_response import SodacardsDevpublicV1RevealOrderCodesResponse
+from sodacards.models.sodacards_devpublic_v1_rotate_webhook_secret_response import SodacardsDevpublicV1RotateWebhookSecretResponse
 
 from sodacards.api_client import ApiClient, RequestSerialized
 from sodacards.api_response import ApiResponse
@@ -65,7 +67,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> object:
-        """DeleteWebhook
+        """Delete a webhook endpoint
 
         DeleteWebhook removes a webhook endpoint.
 
@@ -132,7 +134,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[object]:
-        """DeleteWebhook
+        """Delete a webhook endpoint
 
         DeleteWebhook removes a webhook endpoint.
 
@@ -199,7 +201,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """DeleteWebhook
+        """Delete a webhook endpoint
 
         DeleteWebhook removes a webhook endpoint.
 
@@ -310,6 +312,252 @@ class DefaultApi:
 
 
     @validate_call
+    def get_balance(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> SodacardsDevpublicV1GetBalanceResponse:
+        """Get wallet balance
+
+        GetBalance returns the reseller's prepaid wallet balance, the same funds a  live order is settled from. It reads only the caller's own wallet. A test key  reads a fixed sandbox balance, never the real one, so a test integration can  exercise the read without seeing production funds.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_balance_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SodacardsDevpublicV1GetBalanceResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_balance_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[SodacardsDevpublicV1GetBalanceResponse]:
+        """Get wallet balance
+
+        GetBalance returns the reseller's prepaid wallet balance, the same funds a  live order is settled from. It reads only the caller's own wallet. A test key  reads a fixed sandbox balance, never the real one, so a test integration can  exercise the read without seeing production funds.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_balance_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SodacardsDevpublicV1GetBalanceResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_balance_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get wallet balance
+
+        GetBalance returns the reseller's prepaid wallet balance, the same funds a  live order is settled from. It reads only the caller's own wallet. A test key  reads a fixed sandbox balance, never the real one, so a test integration can  exercise the read without seeing production funds.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_balance_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SodacardsDevpublicV1GetBalanceResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_balance_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'ApiKeyAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/balance',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def get_order(
         self,
         id: Annotated[StrictStr, Field(description="id is the order id, from PlaceOrder.")],
@@ -326,7 +574,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SodacardsDevpublicV1GetOrderResponse:
-        """GetOrder
+        """Get an order
 
         GetOrder returns one of the reseller's orders by id, with its lines and  current status. A live key reads live orders and a test key reads its own  sandbox orders; an id that is not the caller's is reported as not found.
 
@@ -393,7 +641,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SodacardsDevpublicV1GetOrderResponse]:
-        """GetOrder
+        """Get an order
 
         GetOrder returns one of the reseller's orders by id, with its lines and  current status. A live key reads live orders and a test key reads its own  sandbox orders; an id that is not the caller's is reported as not found.
 
@@ -460,7 +708,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """GetOrder
+        """Get an order
 
         GetOrder returns one of the reseller's orders by id, with its lines and  current status. A live key reads live orders and a test key reads its own  sandbox orders; an id that is not the caller's is reported as not found.
 
@@ -587,7 +835,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SodacardsDevpublicV1GetProductResponse:
-        """GetProduct
+        """Get a product
 
         GetProduct returns a single product by its id, priced for the reseller. The  id is the one carried by a catalog entry. A product the reseller may not see  (unlisted, hidden or inactive) is reported as not found, so an id cannot be  probed to learn what exists outside the reseller's catalog.
 
@@ -654,7 +902,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SodacardsDevpublicV1GetProductResponse]:
-        """GetProduct
+        """Get a product
 
         GetProduct returns a single product by its id, priced for the reseller. The  id is the one carried by a catalog entry. A product the reseller may not see  (unlisted, hidden or inactive) is reported as not found, so an id cannot be  probed to learn what exists outside the reseller's catalog.
 
@@ -721,7 +969,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """GetProduct
+        """Get a product
 
         GetProduct returns a single product by its id, priced for the reseller. The  id is the one carried by a catalog entry. A product the reseller may not see  (unlisted, hidden or inactive) is reported as not found, so an id cannot be  probed to learn what exists outside the reseller's catalog.
 
@@ -849,7 +1097,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SodacardsDevpublicV1ListCatalogResponse:
-        """ListCatalog
+        """List catalog products
 
         ListCatalog returns a page of the products the reseller may sell, each with  the reseller's price. It is cursor-paginated: pass next_cursor from the  previous page to fetch the next. A product's id is the identifier used to  order it.
 
@@ -920,7 +1168,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SodacardsDevpublicV1ListCatalogResponse]:
-        """ListCatalog
+        """List catalog products
 
         ListCatalog returns a page of the products the reseller may sell, each with  the reseller's price. It is cursor-paginated: pass next_cursor from the  previous page to fetch the next. A product's id is the identifier used to  order it.
 
@@ -991,7 +1239,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """ListCatalog
+        """List catalog products
 
         ListCatalog returns a page of the products the reseller may sell, each with  the reseller's price. It is cursor-paginated: pass next_cursor from the  previous page to fetch the next. A product's id is the identifier used to  order it.
 
@@ -1130,7 +1378,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SodacardsDevpublicV1ListOrdersResponse:
-        """ListOrders
+        """List orders
 
         ListOrders returns a page of the reseller's orders, newest first. It is  cursor-paginated: pass next_cursor from the previous page to fetch the next.  A live key lists live orders and a test key lists its own sandbox orders.
 
@@ -1205,7 +1453,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SodacardsDevpublicV1ListOrdersResponse]:
-        """ListOrders
+        """List orders
 
         ListOrders returns a page of the reseller's orders, newest first. It is  cursor-paginated: pass next_cursor from the previous page to fetch the next.  A live key lists live orders and a test key lists its own sandbox orders.
 
@@ -1280,7 +1528,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """ListOrders
+        """List orders
 
         ListOrders returns a page of the reseller's orders, newest first. It is  cursor-paginated: pass next_cursor from the previous page to fetch the next.  A live key lists live orders and a test key lists its own sandbox orders.
 
@@ -1424,7 +1672,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SodacardsDevpublicV1ListWebhooksResponse:
-        """ListWebhooks
+        """List webhook endpoints
 
         ListWebhooks returns the reseller's registered webhook endpoints. It never  returns their signing secrets.
 
@@ -1487,7 +1735,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SodacardsDevpublicV1ListWebhooksResponse]:
-        """ListWebhooks
+        """List webhook endpoints
 
         ListWebhooks returns the reseller's registered webhook endpoints. It never  returns their signing secrets.
 
@@ -1550,7 +1798,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """ListWebhooks
+        """List webhook endpoints
 
         ListWebhooks returns the reseller's registered webhook endpoints. It never  returns their signing secrets.
 
@@ -1917,7 +2165,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SodacardsDevpublicV1PlaceOrderResponse:
-        """PlaceOrder
+        """Place an order
 
         PlaceOrder buys one or more products, settled from the reseller's prepaid  wallet. It is asynchronous: the order is accepted and fulfilled in the  background, so the response carries the order id and a status to poll. The  request MUST carry an Idempotency-Key header, so a retried request never  places a second order.
 
@@ -1984,7 +2232,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SodacardsDevpublicV1PlaceOrderResponse]:
-        """PlaceOrder
+        """Place an order
 
         PlaceOrder buys one or more products, settled from the reseller's prepaid  wallet. It is asynchronous: the order is accepted and fulfilled in the  background, so the response carries the order id and a status to poll. The  request MUST carry an Idempotency-Key header, so a retried request never  places a second order.
 
@@ -2051,7 +2299,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """PlaceOrder
+        """Place an order
 
         PlaceOrder buys one or more products, settled from the reseller's prepaid  wallet. It is asynchronous: the order is accepted and fulfilled in the  background, so the response carries the order id and a status to poll. The  request MUST carry an Idempotency-Key header, so a retried request never  places a second order.
 
@@ -2191,7 +2439,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SodacardsDevpublicV1RegisterWebhookResponse:
-        """RegisterWebhook
+        """Register a webhook endpoint
 
         RegisterWebhook registers a URL to receive signed event deliveries. The URL  must be HTTPS and publicly routable. The response carries the signing secret  once; store it, as it is never shown again.
 
@@ -2258,7 +2506,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SodacardsDevpublicV1RegisterWebhookResponse]:
-        """RegisterWebhook
+        """Register a webhook endpoint
 
         RegisterWebhook registers a URL to receive signed event deliveries. The URL  must be HTTPS and publicly routable. The response carries the signing secret  once; store it, as it is never shown again.
 
@@ -2325,7 +2573,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """RegisterWebhook
+        """Register a webhook endpoint
 
         RegisterWebhook registers a URL to receive signed event deliveries. The URL  must be HTTPS and publicly routable. The response carries the signing secret  once; store it, as it is never shown again.
 
@@ -2465,7 +2713,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SodacardsDevpublicV1RevealOrderCodesResponse:
-        """RevealOrderCodes
+        """Reveal order codes
 
         RevealOrderCodes returns the delivered codes of a completed order. Codes are  available once the order is completed; a still-processing order reports that  it is not ready. Reveals are rate-limited per order.
 
@@ -2532,7 +2780,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SodacardsDevpublicV1RevealOrderCodesResponse]:
-        """RevealOrderCodes
+        """Reveal order codes
 
         RevealOrderCodes returns the delivered codes of a completed order. Codes are  available once the order is completed; a still-processing order reports that  it is not ready. Reveals are rate-limited per order.
 
@@ -2599,7 +2847,7 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """RevealOrderCodes
+        """Reveal order codes
 
         RevealOrderCodes returns the delivered codes of a completed order. Codes are  available once the order is completed; a still-processing order reports that  it is not ready. Reveals are rate-limited per order.
 
@@ -2694,6 +2942,267 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v1/orders/{order_id}/codes',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def rotate_webhook_secret(
+        self,
+        id: Annotated[StrictStr, Field(description="id is the webhook endpoint whose signing secret to rotate.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> SodacardsDevpublicV1RotateWebhookSecretResponse:
+        """Rotate a webhook signing secret
+
+        RotateWebhookSecret issues a new signing secret for an endpoint without  interrupting deliveries: the new secret is returned once, and the previous one  stays valid until prev_secret_expires_at. During that window deliveries are  signed with both, so switch your verification to the new secret before the  deadline. Rotating again replaces the outgoing secret rather than adding a  third, so at most two secrets are ever accepted at once.
+
+        :param id: id is the webhook endpoint whose signing secret to rotate. (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._rotate_webhook_secret_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SodacardsDevpublicV1RotateWebhookSecretResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def rotate_webhook_secret_with_http_info(
+        self,
+        id: Annotated[StrictStr, Field(description="id is the webhook endpoint whose signing secret to rotate.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[SodacardsDevpublicV1RotateWebhookSecretResponse]:
+        """Rotate a webhook signing secret
+
+        RotateWebhookSecret issues a new signing secret for an endpoint without  interrupting deliveries: the new secret is returned once, and the previous one  stays valid until prev_secret_expires_at. During that window deliveries are  signed with both, so switch your verification to the new secret before the  deadline. Rotating again replaces the outgoing secret rather than adding a  third, so at most two secrets are ever accepted at once.
+
+        :param id: id is the webhook endpoint whose signing secret to rotate. (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._rotate_webhook_secret_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SodacardsDevpublicV1RotateWebhookSecretResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def rotate_webhook_secret_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="id is the webhook endpoint whose signing secret to rotate.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Rotate a webhook signing secret
+
+        RotateWebhookSecret issues a new signing secret for an endpoint without  interrupting deliveries: the new secret is returned once, and the previous one  stays valid until prev_secret_expires_at. During that window deliveries are  signed with both, so switch your verification to the new secret before the  deadline. Rotating again replaces the outgoing secret rather than adding a  third, so at most two secrets are ever accepted at once.
+
+        :param id: id is the webhook endpoint whose signing secret to rotate. (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._rotate_webhook_secret_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SodacardsDevpublicV1RotateWebhookSecretResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _rotate_webhook_secret_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'ApiKeyAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v1/webhooks/{id}/rotate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

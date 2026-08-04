@@ -4,22 +4,24 @@ All URIs are relative to *https://api.sodacards.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_webhook**](DefaultApi.md#delete_webhook) | **DELETE** /v1/webhooks/{id} | DeleteWebhook
-[**get_order**](DefaultApi.md#get_order) | **GET** /v1/orders/{id} | GetOrder
-[**get_product**](DefaultApi.md#get_product) | **GET** /v1/products/{id} | GetProduct
-[**list_catalog**](DefaultApi.md#list_catalog) | **GET** /v1/catalog | ListCatalog
-[**list_orders**](DefaultApi.md#list_orders) | **GET** /v1/orders | ListOrders
-[**list_webhooks**](DefaultApi.md#list_webhooks) | **GET** /v1/webhooks | ListWebhooks
+[**delete_webhook**](DefaultApi.md#delete_webhook) | **DELETE** /v1/webhooks/{id} | Delete a webhook endpoint
+[**get_balance**](DefaultApi.md#get_balance) | **GET** /v1/balance | Get wallet balance
+[**get_order**](DefaultApi.md#get_order) | **GET** /v1/orders/{id} | Get an order
+[**get_product**](DefaultApi.md#get_product) | **GET** /v1/products/{id} | Get a product
+[**list_catalog**](DefaultApi.md#list_catalog) | **GET** /v1/catalog | List catalog products
+[**list_orders**](DefaultApi.md#list_orders) | **GET** /v1/orders | List orders
+[**list_webhooks**](DefaultApi.md#list_webhooks) | **GET** /v1/webhooks | List webhook endpoints
 [**ping**](DefaultApi.md#ping) | **GET** /v1/ping | Ping
-[**place_order**](DefaultApi.md#place_order) | **POST** /v1/orders | PlaceOrder
-[**register_webhook**](DefaultApi.md#register_webhook) | **POST** /v1/webhooks | RegisterWebhook
-[**reveal_order_codes**](DefaultApi.md#reveal_order_codes) | **GET** /v1/orders/{order_id}/codes | RevealOrderCodes
+[**place_order**](DefaultApi.md#place_order) | **POST** /v1/orders | Place an order
+[**register_webhook**](DefaultApi.md#register_webhook) | **POST** /v1/webhooks | Register a webhook endpoint
+[**reveal_order_codes**](DefaultApi.md#reveal_order_codes) | **GET** /v1/orders/{order_id}/codes | Reveal order codes
+[**rotate_webhook_secret**](DefaultApi.md#rotate_webhook_secret) | **POST** /v1/webhooks/{id}/rotate | Rotate a webhook signing secret
 
 
 # **delete_webhook**
 > object delete_webhook(id)
 
-DeleteWebhook
+Delete a webhook endpoint
 
 DeleteWebhook removes a webhook endpoint.
 
@@ -56,7 +58,7 @@ with sodacards.ApiClient(configuration) as api_client:
     id = 'id_example' # str | id is the webhook endpoint to remove.
 
     try:
-        # DeleteWebhook
+        # Delete a webhook endpoint
         api_response = api_instance.delete_webhook(id)
         print("The response of DefaultApi->delete_webhook:\n")
         pprint(api_response)
@@ -94,10 +96,88 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_balance**
+> SodacardsDevpublicV1GetBalanceResponse get_balance()
+
+Get wallet balance
+
+GetBalance returns the reseller's prepaid wallet balance, the same funds a
+ live order is settled from. It reads only the caller's own wallet. A test key
+ reads a fixed sandbox balance, never the real one, so a test integration can
+ exercise the read without seeing production funds.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import sodacards
+from sodacards.models.sodacards_devpublic_v1_get_balance_response import SodacardsDevpublicV1GetBalanceResponse
+from sodacards.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.sodacards.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sodacards.Configuration(
+    host = "https://api.sodacards.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with sodacards.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = sodacards.DefaultApi(api_client)
+
+    try:
+        # Get wallet balance
+        api_response = api_instance.get_balance()
+        print("The response of DefaultApi->get_balance:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->get_balance: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SodacardsDevpublicV1GetBalanceResponse**](SodacardsDevpublicV1GetBalanceResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_order**
 > SodacardsDevpublicV1GetOrderResponse get_order(id)
 
-GetOrder
+Get an order
 
 GetOrder returns one of the reseller's orders by id, with its lines and
  current status. A live key reads live orders and a test key reads its own
@@ -137,7 +217,7 @@ with sodacards.ApiClient(configuration) as api_client:
     id = 'id_example' # str | id is the order id, from PlaceOrder.
 
     try:
-        # GetOrder
+        # Get an order
         api_response = api_instance.get_order(id)
         print("The response of DefaultApi->get_order:\n")
         pprint(api_response)
@@ -178,7 +258,7 @@ Name | Type | Description  | Notes
 # **get_product**
 > SodacardsDevpublicV1GetProductResponse get_product(id)
 
-GetProduct
+Get a product
 
 GetProduct returns a single product by its id, priced for the reseller. The
  id is the one carried by a catalog entry. A product the reseller may not see
@@ -219,7 +299,7 @@ with sodacards.ApiClient(configuration) as api_client:
     id = 'id_example' # str | id is the product id, taken from a catalog entry.
 
     try:
-        # GetProduct
+        # Get a product
         api_response = api_instance.get_product(id)
         print("The response of DefaultApi->get_product:\n")
         pprint(api_response)
@@ -260,7 +340,7 @@ Name | Type | Description  | Notes
 # **list_catalog**
 > SodacardsDevpublicV1ListCatalogResponse list_catalog(limit=limit, cursor=cursor)
 
-ListCatalog
+List catalog products
 
 ListCatalog returns a page of the products the reseller may sell, each with
  the reseller's price. It is cursor-paginated: pass next_cursor from the
@@ -302,7 +382,7 @@ with sodacards.ApiClient(configuration) as api_client:
     cursor = 'cursor_example' # str | cursor is the next_cursor of the previous page. Empty for the first page. (optional)
 
     try:
-        # ListCatalog
+        # List catalog products
         api_response = api_instance.list_catalog(limit=limit, cursor=cursor)
         print("The response of DefaultApi->list_catalog:\n")
         pprint(api_response)
@@ -344,7 +424,7 @@ Name | Type | Description  | Notes
 # **list_orders**
 > SodacardsDevpublicV1ListOrdersResponse list_orders(limit=limit, cursor=cursor, reference=reference)
 
-ListOrders
+List orders
 
 ListOrders returns a page of the reseller's orders, newest first. It is
  cursor-paginated: pass next_cursor from the previous page to fetch the next.
@@ -386,7 +466,7 @@ with sodacards.ApiClient(configuration) as api_client:
     reference = 'reference_example' # str | reference, when set, filters the list to the orders carrying that client  reference. The cursor is ignored when a reference is given. (optional)
 
     try:
-        # ListOrders
+        # List orders
         api_response = api_instance.list_orders(limit=limit, cursor=cursor, reference=reference)
         print("The response of DefaultApi->list_orders:\n")
         pprint(api_response)
@@ -429,7 +509,7 @@ Name | Type | Description  | Notes
 # **list_webhooks**
 > SodacardsDevpublicV1ListWebhooksResponse list_webhooks()
 
-ListWebhooks
+List webhook endpoints
 
 ListWebhooks returns the reseller's registered webhook endpoints. It never
  returns their signing secrets.
@@ -467,7 +547,7 @@ with sodacards.ApiClient(configuration) as api_client:
     api_instance = sodacards.DefaultApi(api_client)
 
     try:
-        # ListWebhooks
+        # List webhook endpoints
         api_response = api_instance.list_webhooks()
         print("The response of DefaultApi->list_webhooks:\n")
         pprint(api_response)
@@ -581,7 +661,7 @@ This endpoint does not need any parameter.
 # **place_order**
 > SodacardsDevpublicV1PlaceOrderResponse place_order(sodacards_devpublic_v1_place_order_request)
 
-PlaceOrder
+Place an order
 
 PlaceOrder buys one or more products, settled from the reseller's prepaid
  wallet. It is asynchronous: the order is accepted and fulfilled in the
@@ -624,7 +704,7 @@ with sodacards.ApiClient(configuration) as api_client:
     sodacards_devpublic_v1_place_order_request = sodacards.SodacardsDevpublicV1PlaceOrderRequest() # SodacardsDevpublicV1PlaceOrderRequest | 
 
     try:
-        # PlaceOrder
+        # Place an order
         api_response = api_instance.place_order(sodacards_devpublic_v1_place_order_request)
         print("The response of DefaultApi->place_order:\n")
         pprint(api_response)
@@ -665,7 +745,7 @@ Name | Type | Description  | Notes
 # **register_webhook**
 > SodacardsDevpublicV1RegisterWebhookResponse register_webhook(sodacards_devpublic_v1_register_webhook_request)
 
-RegisterWebhook
+Register a webhook endpoint
 
 RegisterWebhook registers a URL to receive signed event deliveries. The URL
  must be HTTPS and publicly routable. The response carries the signing secret
@@ -706,7 +786,7 @@ with sodacards.ApiClient(configuration) as api_client:
     sodacards_devpublic_v1_register_webhook_request = sodacards.SodacardsDevpublicV1RegisterWebhookRequest() # SodacardsDevpublicV1RegisterWebhookRequest | 
 
     try:
-        # RegisterWebhook
+        # Register a webhook endpoint
         api_response = api_instance.register_webhook(sodacards_devpublic_v1_register_webhook_request)
         print("The response of DefaultApi->register_webhook:\n")
         pprint(api_response)
@@ -747,7 +827,7 @@ Name | Type | Description  | Notes
 # **reveal_order_codes**
 > SodacardsDevpublicV1RevealOrderCodesResponse reveal_order_codes(order_id)
 
-RevealOrderCodes
+Reveal order codes
 
 RevealOrderCodes returns the delivered codes of a completed order. Codes are
  available once the order is completed; a still-processing order reports that
@@ -787,7 +867,7 @@ with sodacards.ApiClient(configuration) as api_client:
     order_id = 'order_id_example' # str | order_id is the order whose codes to reveal.
 
     try:
-        # RevealOrderCodes
+        # Reveal order codes
         api_response = api_instance.reveal_order_codes(order_id)
         print("The response of DefaultApi->reveal_order_codes:\n")
         pprint(api_response)
@@ -807,6 +887,90 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SodacardsDevpublicV1RevealOrderCodesResponse**](SodacardsDevpublicV1RevealOrderCodesResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rotate_webhook_secret**
+> SodacardsDevpublicV1RotateWebhookSecretResponse rotate_webhook_secret(id)
+
+Rotate a webhook signing secret
+
+RotateWebhookSecret issues a new signing secret for an endpoint without
+ interrupting deliveries: the new secret is returned once, and the previous one
+ stays valid until prev_secret_expires_at. During that window deliveries are
+ signed with both, so switch your verification to the new secret before the
+ deadline. Rotating again replaces the outgoing secret rather than adding a
+ third, so at most two secrets are ever accepted at once.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import sodacards
+from sodacards.models.sodacards_devpublic_v1_rotate_webhook_secret_response import SodacardsDevpublicV1RotateWebhookSecretResponse
+from sodacards.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.sodacards.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sodacards.Configuration(
+    host = "https://api.sodacards.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with sodacards.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = sodacards.DefaultApi(api_client)
+    id = 'id_example' # str | id is the webhook endpoint whose signing secret to rotate.
+
+    try:
+        # Rotate a webhook signing secret
+        api_response = api_instance.rotate_webhook_secret(id)
+        print("The response of DefaultApi->rotate_webhook_secret:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->rotate_webhook_secret: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| id is the webhook endpoint whose signing secret to rotate. | 
+
+### Return type
+
+[**SodacardsDevpublicV1RotateWebhookSecretResponse**](SodacardsDevpublicV1RotateWebhookSecretResponse.md)
 
 ### Authorization
 

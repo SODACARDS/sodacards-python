@@ -29,42 +29,49 @@ class TestDefaultApi(unittest.TestCase):
     def test_delete_webhook(self) -> None:
         """Test case for delete_webhook
 
-        DeleteWebhook
+        Delete a webhook endpoint
+        """
+        pass
+
+    def test_get_balance(self) -> None:
+        """Test case for get_balance
+
+        Get wallet balance
         """
         pass
 
     def test_get_order(self) -> None:
         """Test case for get_order
 
-        GetOrder
+        Get an order
         """
         pass
 
     def test_get_product(self) -> None:
         """Test case for get_product
 
-        GetProduct
+        Get a product
         """
         pass
 
     def test_list_catalog(self) -> None:
         """Test case for list_catalog
 
-        ListCatalog
+        List catalog products
         """
         pass
 
     def test_list_orders(self) -> None:
         """Test case for list_orders
 
-        ListOrders
+        List orders
         """
         pass
 
     def test_list_webhooks(self) -> None:
         """Test case for list_webhooks
 
-        ListWebhooks
+        List webhook endpoints
         """
         pass
 
@@ -78,21 +85,28 @@ class TestDefaultApi(unittest.TestCase):
     def test_place_order(self) -> None:
         """Test case for place_order
 
-        PlaceOrder
+        Place an order
         """
         pass
 
     def test_register_webhook(self) -> None:
         """Test case for register_webhook
 
-        RegisterWebhook
+        Register a webhook endpoint
         """
         pass
 
     def test_reveal_order_codes(self) -> None:
         """Test case for reveal_order_codes
 
-        RevealOrderCodes
+        Reveal order codes
+        """
+        pass
+
+    def test_rotate_webhook_secret(self) -> None:
+        """Test case for rotate_webhook_secret
+
+        Rotate a webhook signing secret
         """
         pass
 

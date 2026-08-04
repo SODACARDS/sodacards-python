@@ -18,7 +18,6 @@ __version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
-    "PublicAPIServiceApi",
     "DefaultApi",
     "ApiResponse",
     "ApiClient",
@@ -66,7 +65,6 @@ __all__ = [
 ]
 
 # import apis into sdk package
-from sodacards.api.public_api_service_api import PublicAPIServiceApi as PublicAPIServiceApi
 from sodacards.api.default_api import DefaultApi as DefaultApi
 
 # import ApiClient
