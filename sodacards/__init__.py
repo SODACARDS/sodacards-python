@@ -36,6 +36,8 @@ __all__ = [
     "SodacardsDevpublicV1GetOrderResponse",
     "SodacardsDevpublicV1GetProductRequest",
     "SodacardsDevpublicV1GetProductResponse",
+    "SodacardsDevpublicV1InputFieldOption",
+    "SodacardsDevpublicV1InputFieldSpec",
     "SodacardsDevpublicV1ListCatalogRequest",
     "SodacardsDevpublicV1ListCatalogResponse",
     "SodacardsDevpublicV1ListOrdersRequest",
@@ -86,6 +88,8 @@ from sodacards.models.sodacards_devpublic_v1_get_order_request import SodacardsD
 from sodacards.models.sodacards_devpublic_v1_get_order_response import SodacardsDevpublicV1GetOrderResponse as SodacardsDevpublicV1GetOrderResponse
 from sodacards.models.sodacards_devpublic_v1_get_product_request import SodacardsDevpublicV1GetProductRequest as SodacardsDevpublicV1GetProductRequest
 from sodacards.models.sodacards_devpublic_v1_get_product_response import SodacardsDevpublicV1GetProductResponse as SodacardsDevpublicV1GetProductResponse
+from sodacards.models.sodacards_devpublic_v1_input_field_option import SodacardsDevpublicV1InputFieldOption as SodacardsDevpublicV1InputFieldOption
+from sodacards.models.sodacards_devpublic_v1_input_field_spec import SodacardsDevpublicV1InputFieldSpec as SodacardsDevpublicV1InputFieldSpec
 from sodacards.models.sodacards_devpublic_v1_list_catalog_request import SodacardsDevpublicV1ListCatalogRequest as SodacardsDevpublicV1ListCatalogRequest
 from sodacards.models.sodacards_devpublic_v1_list_catalog_response import SodacardsDevpublicV1ListCatalogResponse as SodacardsDevpublicV1ListCatalogResponse
 from sodacards.models.sodacards_devpublic_v1_list_orders_request import SodacardsDevpublicV1ListOrdersRequest as SodacardsDevpublicV1ListOrdersRequest

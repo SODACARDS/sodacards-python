@@ -45,7 +45,20 @@ class TestSodacardsDevpublicV1ListCatalogResponse(unittest.TestCase):
                         bonus = '', 
                         min_quantity = 56, 
                         max_quantity = 56, 
-                        purchasable = True, )
+                        purchasable = True, 
+                        input_fields = [
+                            sodacards.models.input_field_spec.InputFieldSpec(
+                                key = '', 
+                                type = '', 
+                                required = True, 
+                                regex = '', 
+                                options = [
+                                    sodacards.models.input_field_option.InputFieldOption(
+                                        value = '', 
+                                        label = '', 
+                                        parent_value = '', )
+                                    ], )
+                            ], )
                     ],
                 has_more = True,
                 next_cursor = ''

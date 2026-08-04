@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from sodacards.models.sodacards_devpublic_v1_input_field_spec import SodacardsDevpublicV1InputFieldSpec
 from sodacards.models.sodacards_devpublic_v1_money import SodacardsDevpublicV1Money
 from sodacards.models.sodacards_devpublic_v1_product_face_value import SodacardsDevpublicV1ProductFaceValue
 from typing import Optional, Set
@@ -38,7 +39,8 @@ class SodacardsDevpublicV1Product(BaseModel):
     min_quantity: Optional[StrictInt] = Field(default=None, description="min_quantity and max_quantity bound how many units an order line may buy.", alias="minQuantity")
     max_quantity: Optional[StrictInt] = Field(default=None, alias="maxQuantity")
     purchasable: Optional[StrictBool] = Field(default=None, description="purchasable is true when the item has a price and can be ordered now.")
-    __properties: ClassVar[List[str]] = ["id", "name", "faceValue", "price", "strikePrice", "bonus", "minQuantity", "maxQuantity", "purchasable"]
+    input_fields: Optional[List[SodacardsDevpublicV1InputFieldSpec]] = Field(default=None, description="input_fields are the purchase-form fields this product requires. Empty for a  gift card that needs nothing; present for a game top-up. Read them to learn  which values to submit on the order line (OrderLine.input_fields, keyed by  each field's key) and to validate them before placing the order.", alias="inputFields")
+    __properties: ClassVar[List[str]] = ["id", "name", "faceValue", "price", "strikePrice", "bonus", "minQuantity", "maxQuantity", "purchasable", "inputFields"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -88,6 +90,13 @@ class SodacardsDevpublicV1Product(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of strike_price
         if self.strike_price:
             _dict['strikePrice'] = self.strike_price.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in input_fields (list)
+        _items = []
+        if self.input_fields:
+            for _item_input_fields in self.input_fields:
+                if _item_input_fields:
+                    _items.append(_item_input_fields.to_dict())
+            _dict['inputFields'] = _items
         return _dict
 
     @classmethod
@@ -108,7 +117,8 @@ class SodacardsDevpublicV1Product(BaseModel):
             "bonus": obj.get("bonus"),
             "minQuantity": obj.get("minQuantity"),
             "maxQuantity": obj.get("maxQuantity"),
-            "purchasable": obj.get("purchasable")
+            "purchasable": obj.get("purchasable"),
+            "inputFields": [SodacardsDevpublicV1InputFieldSpec.from_dict(_item) for _item in obj["inputFields"]] if obj.get("inputFields") is not None else None
         })
         return _obj
 
