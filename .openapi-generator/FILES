@@ -35,6 +35,8 @@ docs/SodacardsDevpublicV1RegisterWebhookResponse.md
 docs/SodacardsDevpublicV1RevealOrderCodesRequest.md
 docs/SodacardsDevpublicV1RevealOrderCodesResponse.md
 docs/SodacardsDevpublicV1RevealedCode.md
+docs/SodacardsDevpublicV1RotateWebhookSecretRequest.md
+docs/SodacardsDevpublicV1RotateWebhookSecretResponse.md
 docs/SodacardsDevpublicV1Webhook.md
 git_push.sh
 pyproject.toml
@@ -79,6 +81,8 @@ sodacards/models/sodacards_devpublic_v1_register_webhook_response.py
 sodacards/models/sodacards_devpublic_v1_reveal_order_codes_request.py
 sodacards/models/sodacards_devpublic_v1_reveal_order_codes_response.py
 sodacards/models/sodacards_devpublic_v1_revealed_code.py
+sodacards/models/sodacards_devpublic_v1_rotate_webhook_secret_request.py
+sodacards/models/sodacards_devpublic_v1_rotate_webhook_secret_response.py
 sodacards/models/sodacards_devpublic_v1_webhook.py
 sodacards/py.typed
 sodacards/rest.py
@@ -115,5 +119,7 @@ test/test_sodacards_devpublic_v1_register_webhook_response.py
 test/test_sodacards_devpublic_v1_reveal_order_codes_request.py
 test/test_sodacards_devpublic_v1_reveal_order_codes_response.py
 test/test_sodacards_devpublic_v1_revealed_code.py
+test/test_sodacards_devpublic_v1_rotate_webhook_secret_request.py
+test/test_sodacards_devpublic_v1_rotate_webhook_secret_response.py
 test/test_sodacards_devpublic_v1_webhook.py
 tox.ini

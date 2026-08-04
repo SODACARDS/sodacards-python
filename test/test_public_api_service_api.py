@@ -33,6 +33,13 @@ class TestPublicAPIServiceApi(unittest.TestCase):
         """
         pass
 
+    def test_public_api_service_rotate_webhook_secret(self) -> None:
+        """Test case for public_api_service_rotate_webhook_secret
+
+        RotateWebhookSecret
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -58,6 +58,8 @@ __all__ = [
     "SodacardsDevpublicV1RevealOrderCodesRequest",
     "SodacardsDevpublicV1RevealOrderCodesResponse",
     "SodacardsDevpublicV1RevealedCode",
+    "SodacardsDevpublicV1RotateWebhookSecretRequest",
+    "SodacardsDevpublicV1RotateWebhookSecretResponse",
     "SodacardsDevpublicV1Webhook",
 ]
 
@@ -106,5 +108,7 @@ from sodacards.models.sodacards_devpublic_v1_register_webhook_response import So
 from sodacards.models.sodacards_devpublic_v1_reveal_order_codes_request import SodacardsDevpublicV1RevealOrderCodesRequest as SodacardsDevpublicV1RevealOrderCodesRequest
 from sodacards.models.sodacards_devpublic_v1_reveal_order_codes_response import SodacardsDevpublicV1RevealOrderCodesResponse as SodacardsDevpublicV1RevealOrderCodesResponse
 from sodacards.models.sodacards_devpublic_v1_revealed_code import SodacardsDevpublicV1RevealedCode as SodacardsDevpublicV1RevealedCode
+from sodacards.models.sodacards_devpublic_v1_rotate_webhook_secret_request import SodacardsDevpublicV1RotateWebhookSecretRequest as SodacardsDevpublicV1RotateWebhookSecretRequest
+from sodacards.models.sodacards_devpublic_v1_rotate_webhook_secret_response import SodacardsDevpublicV1RotateWebhookSecretResponse as SodacardsDevpublicV1RotateWebhookSecretResponse
 from sodacards.models.sodacards_devpublic_v1_webhook import SodacardsDevpublicV1Webhook as SodacardsDevpublicV1Webhook
 
