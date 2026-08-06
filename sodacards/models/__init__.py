@@ -14,6 +14,7 @@
 
 # import models into model package
 from sodacards.models.amount import Amount
+from sodacards.models.problem_details import ProblemDetails
 from sodacards.models.sodacards_devpublic_v1_delete_webhook_request import SodacardsDevpublicV1DeleteWebhookRequest
 from sodacards.models.sodacards_devpublic_v1_get_balance_response import SodacardsDevpublicV1GetBalanceResponse
 from sodacards.models.sodacards_devpublic_v1_get_order_request import SodacardsDevpublicV1GetOrderRequest

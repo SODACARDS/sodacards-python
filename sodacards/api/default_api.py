@@ -105,6 +105,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -172,6 +179,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -239,6 +253,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -283,7 +304,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -362,6 +384,11 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1GetBalanceResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -425,6 +452,11 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1GetBalanceResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -488,6 +520,11 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1GetBalanceResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -529,7 +566,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -612,6 +650,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1GetOrderResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -679,6 +723,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1GetOrderResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -746,6 +796,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1GetOrderResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -790,7 +846,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -873,6 +930,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1GetProductResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -940,6 +1003,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1GetProductResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1007,6 +1076,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1GetProductResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1051,7 +1126,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -1138,6 +1214,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1ListCatalogResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1209,6 +1291,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1ListCatalogResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1280,6 +1368,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1ListCatalogResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1331,7 +1425,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -1422,6 +1517,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1ListOrdersResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1497,6 +1598,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1ListOrdersResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1572,6 +1679,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1ListOrdersResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1628,7 +1741,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -1707,6 +1821,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1ListWebhooksResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1770,6 +1890,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1ListWebhooksResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1833,6 +1959,12 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1ListWebhooksResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1874,7 +2006,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -1953,6 +2086,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1PingResponse",
+            '401': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2016,6 +2153,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1PingResponse",
+            '401': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2079,6 +2220,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1PingResponse",
+            '401': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2120,7 +2265,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -2151,6 +2297,7 @@ class DefaultApi:
     @validate_call
     def place_order(
         self,
+        idempotency_key: Annotated[StrictStr, Field(description="A unique key that makes order placement safe to retry: a retried request with the same key never places a second order. Reusing a key with a different body is rejected. Use a UUID you generate per order.")],
         sodacards_devpublic_v1_place_order_request: SodacardsDevpublicV1PlaceOrderRequest,
         _request_timeout: Union[
             None,
@@ -2169,6 +2316,8 @@ class DefaultApi:
 
         PlaceOrder buys one or more products, settled from the reseller's prepaid  wallet. It is asynchronous: the order is accepted and fulfilled in the  background, so the response carries the order id and a status to poll. The  request MUST carry an Idempotency-Key header, so a retried request never  places a second order.
 
+        :param idempotency_key: A unique key that makes order placement safe to retry: a retried request with the same key never places a second order. Reusing a key with a different body is rejected. Use a UUID you generate per order. (required)
+        :type idempotency_key: str
         :param sodacards_devpublic_v1_place_order_request: (required)
         :type sodacards_devpublic_v1_place_order_request: SodacardsDevpublicV1PlaceOrderRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -2194,6 +2343,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._place_order_serialize(
+            idempotency_key=idempotency_key,
             sodacards_devpublic_v1_place_order_request=sodacards_devpublic_v1_place_order_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2203,6 +2353,15 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1PlaceOrderResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '402': "ProblemDetails",
+            '403': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2218,6 +2377,7 @@ class DefaultApi:
     @validate_call
     def place_order_with_http_info(
         self,
+        idempotency_key: Annotated[StrictStr, Field(description="A unique key that makes order placement safe to retry: a retried request with the same key never places a second order. Reusing a key with a different body is rejected. Use a UUID you generate per order.")],
         sodacards_devpublic_v1_place_order_request: SodacardsDevpublicV1PlaceOrderRequest,
         _request_timeout: Union[
             None,
@@ -2236,6 +2396,8 @@ class DefaultApi:
 
         PlaceOrder buys one or more products, settled from the reseller's prepaid  wallet. It is asynchronous: the order is accepted and fulfilled in the  background, so the response carries the order id and a status to poll. The  request MUST carry an Idempotency-Key header, so a retried request never  places a second order.
 
+        :param idempotency_key: A unique key that makes order placement safe to retry: a retried request with the same key never places a second order. Reusing a key with a different body is rejected. Use a UUID you generate per order. (required)
+        :type idempotency_key: str
         :param sodacards_devpublic_v1_place_order_request: (required)
         :type sodacards_devpublic_v1_place_order_request: SodacardsDevpublicV1PlaceOrderRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -2261,6 +2423,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._place_order_serialize(
+            idempotency_key=idempotency_key,
             sodacards_devpublic_v1_place_order_request=sodacards_devpublic_v1_place_order_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2270,6 +2433,15 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1PlaceOrderResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '402': "ProblemDetails",
+            '403': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2285,6 +2457,7 @@ class DefaultApi:
     @validate_call
     def place_order_without_preload_content(
         self,
+        idempotency_key: Annotated[StrictStr, Field(description="A unique key that makes order placement safe to retry: a retried request with the same key never places a second order. Reusing a key with a different body is rejected. Use a UUID you generate per order.")],
         sodacards_devpublic_v1_place_order_request: SodacardsDevpublicV1PlaceOrderRequest,
         _request_timeout: Union[
             None,
@@ -2303,6 +2476,8 @@ class DefaultApi:
 
         PlaceOrder buys one or more products, settled from the reseller's prepaid  wallet. It is asynchronous: the order is accepted and fulfilled in the  background, so the response carries the order id and a status to poll. The  request MUST carry an Idempotency-Key header, so a retried request never  places a second order.
 
+        :param idempotency_key: A unique key that makes order placement safe to retry: a retried request with the same key never places a second order. Reusing a key with a different body is rejected. Use a UUID you generate per order. (required)
+        :type idempotency_key: str
         :param sodacards_devpublic_v1_place_order_request: (required)
         :type sodacards_devpublic_v1_place_order_request: SodacardsDevpublicV1PlaceOrderRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -2328,6 +2503,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._place_order_serialize(
+            idempotency_key=idempotency_key,
             sodacards_devpublic_v1_place_order_request=sodacards_devpublic_v1_place_order_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2337,6 +2513,15 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1PlaceOrderResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '402': "ProblemDetails",
+            '403': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2347,6 +2532,7 @@ class DefaultApi:
 
     def _place_order_serialize(
         self,
+        idempotency_key,
         sodacards_devpublic_v1_place_order_request,
         _request_auth,
         _content_type,
@@ -2371,6 +2557,8 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params['Idempotency-Key'] = idempotency_key
         # process the form parameters
         # process the body parameter
         if sodacards_devpublic_v1_place_order_request is not None:
@@ -2381,7 +2569,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -2477,6 +2666,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1RegisterWebhookResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2544,6 +2740,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1RegisterWebhookResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2611,6 +2814,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1RegisterWebhookResponse",
+            '400': "ProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2655,7 +2865,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -2751,6 +2962,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1RevealOrderCodesResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2818,6 +3036,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1RevealOrderCodesResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2885,6 +3110,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1RevealOrderCodesResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2929,7 +3161,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -3012,6 +3245,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1RotateWebhookSecretResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3079,6 +3319,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1RotateWebhookSecretResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3146,6 +3393,13 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SodacardsDevpublicV1RotateWebhookSecretResponse",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '429': "ProblemDetails",
+            '500': "ProblemDetails",
+            '503': "ProblemDetails",
+            'default': "ProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3190,7 +3444,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
