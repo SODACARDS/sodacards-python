@@ -14,10 +14,10 @@
 
 import unittest
 
-from sodacards.models.problem_details import ProblemDetails
+from sodacards.models.problem import Problem
 
-class TestProblemDetails(unittest.TestCase):
-    """ProblemDetails unit test stubs"""
+class TestProblem(unittest.TestCase):
+    """Problem unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,16 +25,16 @@ class TestProblemDetails(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ProblemDetails:
-        """Test ProblemDetails
+    def make_instance(self, include_optional) -> Problem:
+        """Test Problem
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ProblemDetails`
+        # uncomment below to create an instance of `Problem`
         """
-        model = ProblemDetails()
+        model = Problem()
         if include_optional:
-            return ProblemDetails(
+            return Problem(
                 type = '',
                 title = '',
                 status = 56,
@@ -43,7 +43,7 @@ class TestProblemDetails(unittest.TestCase):
                 request_id = ''
             )
         else:
-            return ProblemDetails(
+            return Problem(
                 type = '',
                 title = '',
                 status = 56,
@@ -51,8 +51,8 @@ class TestProblemDetails(unittest.TestCase):
         )
         """
 
-    def testProblemDetails(self):
-        """Test ProblemDetails"""
+    def testProblem(self):
+        """Test Problem"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

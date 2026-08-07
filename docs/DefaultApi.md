@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**ping**](DefaultApi.md#ping) | **GET** /v1/ping | Ping
 [**place_order**](DefaultApi.md#place_order) | **POST** /v1/orders | Place an order
 [**register_webhook**](DefaultApi.md#register_webhook) | **POST** /v1/webhooks | Register a webhook endpoint
-[**reveal_order_codes**](DefaultApi.md#reveal_order_codes) | **GET** /v1/orders/{order_id}/codes | Reveal order codes
+[**reveal_order_codes**](DefaultApi.md#reveal_order_codes) | **GET** /v1/orders/{id}/codes | Reveal order codes
 [**rotate_webhook_secret**](DefaultApi.md#rotate_webhook_secret) | **POST** /v1/webhooks/{id}/rotate | Rotate a webhook signing secret
 
 
@@ -93,13 +93,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**404** | The requested resource does not exist or is not visible to this key. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**503** | The feature is not configured on this service, or it is temporarily unavailable. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -178,11 +172,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -264,12 +254,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**404** | The requested resource does not exist or is not visible to this key. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -352,12 +337,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**404** | The requested resource does not exist or is not visible to this key. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -442,12 +422,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | The request was not valid (e.g. a malformed body, a bad cursor, an invalid webhook URL). |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -533,12 +508,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | The request was not valid (e.g. a malformed body, a bad cursor, an invalid webhook URL). |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -615,12 +585,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**503** | The feature is not configured on this service, or it is temporarily unavailable. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -697,10 +662,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -747,7 +709,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with sodacards.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sodacards.DefaultApi(api_client)
-    idempotency_key = 'idempotency_key_example' # str | A unique key that makes order placement safe to retry: a retried request with the same key never places a second order. Reusing a key with a different body is rejected. Use a UUID you generate per order.
+    idempotency_key = 'idempotency_key_example' # str | A unique key so a retried request never places a second order. Reuse the same key to retry a call safely; reusing it with a different body is a conflict.
     sodacards_devpublic_v1_place_order_request = sodacards.SodacardsDevpublicV1PlaceOrderRequest() # SodacardsDevpublicV1PlaceOrderRequest | 
 
     try:
@@ -766,7 +728,7 @@ with sodacards.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idempotency_key** | **str**| A unique key that makes order placement safe to retry: a retried request with the same key never places a second order. Reusing a key with a different body is rejected. Use a UUID you generate per order. | 
+ **idempotency_key** | **str**| A unique key so a retried request never places a second order. Reuse the same key to retry a call safely; reusing it with a different body is a conflict. | 
  **sodacards_devpublic_v1_place_order_request** | [**SodacardsDevpublicV1PlaceOrderRequest**](SodacardsDevpublicV1PlaceOrderRequest.md)|  | 
 
 ### Return type
@@ -787,15 +749,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | The request was not valid (e.g. a malformed body, a bad cursor, an invalid webhook URL). |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**402** | The wallet balance does not cover the order. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**409** | The request conflicts with the current state (an in-flight idempotent retry, or an order not yet ready). |  -  |
-**422** | The request was well-formed but could not be processed (an Idempotency-Key reused with a different body, or an over-ceiling order total). |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -878,18 +832,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | The request was not valid (e.g. a malformed body, a bad cursor, an invalid webhook URL). |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**503** | The feature is not configured on this service, or it is temporarily unavailable. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reveal_order_codes**
-> SodacardsDevpublicV1RevealOrderCodesResponse reveal_order_codes(order_id)
+> SodacardsDevpublicV1RevealOrderCodesResponse reveal_order_codes(id)
 
 Reveal order codes
 
@@ -928,11 +876,11 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with sodacards.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sodacards.DefaultApi(api_client)
-    order_id = 'order_id_example' # str | order_id is the order whose codes to reveal.
+    id = 'id_example' # str | id is the order whose codes to reveal.
 
     try:
         # Reveal order codes
-        api_response = api_instance.reveal_order_codes(order_id)
+        api_response = api_instance.reveal_order_codes(id)
         print("The response of DefaultApi->reveal_order_codes:\n")
         pprint(api_response)
     except Exception as e:
@@ -946,7 +894,7 @@ with sodacards.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **str**| order_id is the order whose codes to reveal. | 
+ **id** | **str**| id is the order whose codes to reveal. | 
 
 ### Return type
 
@@ -966,13 +914,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**404** | The requested resource does not exist or is not visible to this key. |  -  |
-**409** | The request conflicts with the current state (an in-flight idempotent retry, or an order not yet ready). |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1057,13 +999,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | The API key is missing, malformed, revoked or expired. |  -  |
-**403** | The key lacks the scope required for this action, or the account is not an approved reseller. |  -  |
-**404** | The requested resource does not exist or is not visible to this key. |  -  |
-**429** | The request rate for this key was exceeded. Retry after a short delay. |  -  |
-**500** | An unexpected error occurred. The cause is never leaked in the body. |  -  |
-**503** | The feature is not configured on this service, or it is temporarily unavailable. |  -  |
-**0** | An error occurred. The body is an RFC 9457 problem document whose &#x60;code&#x60; names the specific reason. |  -  |
+**0** | Error. The body is an RFC 9457 problem+json object; switch on &#x60;code&#x60; for the machine-readable reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

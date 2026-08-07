@@ -35,7 +35,7 @@ class TestSodacardsDevpublicV1RevealOrderCodesRequest(unittest.TestCase):
         model = SodacardsDevpublicV1RevealOrderCodesRequest()
         if include_optional:
             return SodacardsDevpublicV1RevealOrderCodesRequest(
-                order_id = ''
+                id = ''
             )
         else:
             return SodacardsDevpublicV1RevealOrderCodesRequest(

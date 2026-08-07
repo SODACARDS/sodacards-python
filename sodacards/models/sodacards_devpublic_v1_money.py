@@ -26,7 +26,7 @@ from pydantic_core import to_jsonable_python
 
 class SodacardsDevpublicV1Money(BaseModel):
     """
-    SodacardsDevpublicV1Money
+    Money is an amount in a currency's minor units, together with the currency's  ISO-4217 code and its number of decimal places, so the amount can be  interpreted without assuming the currency. XOF (the West-African CFA franc) has  no minor unit, so an XOF amount is a whole franc value.
     """ # noqa: E501
     amount: Optional[Amount] = None
     currency: Optional[StrictStr] = Field(default=None, description="currency is the ISO-4217 code, e.g. \"XOF\".")

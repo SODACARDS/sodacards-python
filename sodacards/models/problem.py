@@ -23,16 +23,16 @@ from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class ProblemDetails(BaseModel):
+class Problem(BaseModel):
     """
-    An RFC 9457 problem document. Every error response uses this shape. Switch on `code` (stable, machine-readable), never on `title` or `detail` (human copy, may change). `status` mirrors the HTTP status.
+    An RFC 9457 problem+json error. Switch on `code`, the stable machine-readable reason; the HTTP status frames the broad category.
     """ # noqa: E501
-    type: StrictStr = Field(description="A URI identifying the error type, e.g. https://developer.sodacards.com/errors/insufficient_balance.")
-    title: StrictStr = Field(description="A short, human-readable summary of the error.")
-    status: StrictInt = Field(description="The HTTP status code, repeated for convenience.")
-    code: StrictStr = Field(description="A stable, machine-readable error code, e.g. insufficient_balance. Switch on this.")
-    detail: Optional[StrictStr] = Field(default=None, description="A human-readable explanation specific to this occurrence.")
-    request_id: Optional[StrictStr] = Field(default=None, description="The request identifier, to quote when contacting support.")
+    type: StrictStr = Field(description="A stable URI identifying the error kind; it resolves to the docs section for that code.")
+    title: StrictStr = Field(description="A short, human-readable summary of the error kind.")
+    status: StrictInt = Field(description="The HTTP status code, repeated in the body for convenience.")
+    code: StrictStr = Field(description="The machine-readable reason (e.g. \"insufficient_balance\"): switch on this, never on the human text.")
+    detail: Optional[StrictStr] = Field(default=None, description="A human-readable explanation of this specific occurrence. May be absent.")
+    request_id: Optional[StrictStr] = Field(default=None, description="Identifies this request in support conversations. May be absent.")
     __properties: ClassVar[List[str]] = ["type", "title", "status", "code", "detail", "request_id"]
 
     model_config = ConfigDict(
@@ -53,7 +53,7 @@ class ProblemDetails(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProblemDetails from a JSON string"""
+        """Create an instance of Problem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,7 +78,7 @@ class ProblemDetails(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProblemDetails from a dict"""
+        """Create an instance of Problem from a dict"""
         if obj is None:
             return None
 

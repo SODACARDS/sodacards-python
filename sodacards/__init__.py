@@ -29,7 +29,7 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "Amount",
-    "ProblemDetails",
+    "Problem",
     "SodacardsDevpublicV1DeleteWebhookRequest",
     "SodacardsDevpublicV1GetBalanceResponse",
     "SodacardsDevpublicV1GetOrderRequest",
@@ -81,7 +81,7 @@ from sodacards.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from sodacards.models.amount import Amount as Amount
-from sodacards.models.problem_details import ProblemDetails as ProblemDetails
+from sodacards.models.problem import Problem as Problem
 from sodacards.models.sodacards_devpublic_v1_delete_webhook_request import SodacardsDevpublicV1DeleteWebhookRequest as SodacardsDevpublicV1DeleteWebhookRequest
 from sodacards.models.sodacards_devpublic_v1_get_balance_response import SodacardsDevpublicV1GetBalanceResponse as SodacardsDevpublicV1GetBalanceResponse
 from sodacards.models.sodacards_devpublic_v1_get_order_request import SodacardsDevpublicV1GetOrderRequest as SodacardsDevpublicV1GetOrderRequest

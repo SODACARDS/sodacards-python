@@ -36,7 +36,7 @@ class TestSodacardsDevpublicV1PlacedOrder(unittest.TestCase):
         if include_optional:
             return SodacardsDevpublicV1PlacedOrder(
                 id = '',
-                status = '',
+                status = 'pending',
                 total = sodacards.models.money.Money(
                     amount = 56, 
                     currency = '', 

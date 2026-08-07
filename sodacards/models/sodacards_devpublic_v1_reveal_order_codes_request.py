@@ -27,9 +27,9 @@ class SodacardsDevpublicV1RevealOrderCodesRequest(BaseModel):
     """
     SodacardsDevpublicV1RevealOrderCodesRequest
     """ # noqa: E501
-    order_id: Optional[StrictStr] = Field(default=None, description="order_id is the order whose codes to reveal.", alias="orderId")
+    id: Optional[StrictStr] = Field(default=None, description="id is the order whose codes to reveal.")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["orderId"]
+    __properties: ClassVar[List[str]] = ["id"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,7 +89,7 @@ class SodacardsDevpublicV1RevealOrderCodesRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "orderId": obj.get("orderId")
+            "id": obj.get("id")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

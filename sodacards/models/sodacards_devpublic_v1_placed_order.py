@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from sodacards.models.sodacards_devpublic_v1_money import SodacardsDevpublicV1Money
 from typing import Optional, Set
@@ -32,6 +32,16 @@ class SodacardsDevpublicV1PlacedOrder(BaseModel):
     status: Optional[StrictStr] = Field(default=None, description="status is the order's current state: \"pending\", \"processing\", \"completed\",  \"failed\" or \"refunded\".")
     total: Optional[SodacardsDevpublicV1Money] = Field(default=None, description="total is the amount charged to the reseller's wallet, in the currency of Money.")
     __properties: ClassVar[List[str]] = ["id", "status", "total"]
+
+    @field_validator('status')
+    def status_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['pending', 'processing', 'completed', 'failed', 'refunded']):
+            raise ValueError("must be one of enum values ('pending', 'processing', 'completed', 'failed', 'refunded')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

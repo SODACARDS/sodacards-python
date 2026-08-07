@@ -37,7 +37,7 @@ class TestSodacardsDevpublicV1GetOrderResponse(unittest.TestCase):
             return SodacardsDevpublicV1GetOrderResponse(
                 order = sodacards.models.order.Order(
                     id = '', 
-                    status = '', 
+                    status = 'pending', 
                     total = null, 
                     created_at = '', 
                     reference = '', 

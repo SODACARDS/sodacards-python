@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**order_id** | **str** | order_id is the order whose codes to reveal. | [optional] 
+**id** | **str** | id is the order whose codes to reveal. | [optional] 
 
 ## Example
 

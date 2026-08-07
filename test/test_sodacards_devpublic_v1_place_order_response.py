@@ -37,7 +37,7 @@ class TestSodacardsDevpublicV1PlaceOrderResponse(unittest.TestCase):
             return SodacardsDevpublicV1PlaceOrderResponse(
                 order = sodacards.models.placed_order.PlacedOrder(
                     id = '', 
-                    status = '', 
+                    status = 'pending', 
                     total = null, )
             )
         else:
