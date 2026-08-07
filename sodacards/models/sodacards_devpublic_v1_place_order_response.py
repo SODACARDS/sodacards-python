@@ -28,7 +28,7 @@ class SodacardsDevpublicV1PlaceOrderResponse(BaseModel):
     """
     SodacardsDevpublicV1PlaceOrderResponse
     """ # noqa: E501
-    order: Optional[SodacardsDevpublicV1PlacedOrder] = Field(default=None, description="order is the accepted order. Its status is pending until fulfillment  completes; poll the order to follow it.")
+    order: Optional[SodacardsDevpublicV1PlacedOrder] = Field(default=None, description="order is the accepted order. It is settled from the wallet at placement, so it  is born already paid: its status is \"processing\" while it is being fulfilled,  or \"completed\" when fulfillment is immediate. It is never \"pending\" -- the  developer API charges synchronously, so an order awaiting payment is not a  state it produces. Poll the order to follow it to \"completed\".")
     __properties: ClassVar[List[str]] = ["order"]
 
     model_config = ConfigDict(

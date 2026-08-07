@@ -30,7 +30,7 @@ class SodacardsDevpublicV1Money(BaseModel):
     """ # noqa: E501
     amount: Optional[Amount] = None
     currency: Optional[StrictStr] = Field(default=None, description="currency is the ISO-4217 code, e.g. \"XOF\".")
-    minor_unit_exponent: Optional[StrictInt] = Field(default=None, description="minor_unit_exponent is the currency's number of decimal places (0 for XOF,  2 for USD): amount divided by 10^minor_unit_exponent is the major-unit value.", alias="minorUnitExponent")
+    minor_unit_exponent: Optional[StrictInt] = Field(default=None, description="minor_unit_exponent is the currency's number of decimal places (0 for XOF,  2 for USD): amount divided by 10^minor_unit_exponent is the major-unit value.  The example is 0 on purpose: XOF has no minor unit, and an explicit example  keeps the field visible in the docs even though its value is a zero.", alias="minorUnitExponent")
     __properties: ClassVar[List[str]] = ["amount", "currency", "minorUnitExponent"]
 
     model_config = ConfigDict(
